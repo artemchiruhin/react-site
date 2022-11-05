@@ -1,13 +1,501 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    height: 100vh;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 50px;
+    padding-left: 30px;
+    padding-top: 80px;
+    margin-bottom: 40px;
+}
+
+.button {
+    border: none;
+    border-radius: 100px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    display: block;
+}
+
+label {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Первая секция */
+.first_section {
+    background: #6F88FC;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.menu_item__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: .3s ease-in;
+    position: relative;
+}
+
+.menu_item__link::before,
+.menu_item__link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #45E3FF;
+    bottom: -7px;
+    transition: .3s ease-in;
+}
+
+.menu_item__link::before {
+    left: 0;
+}
+
+.menu_item__link::after {
+    right: 0;
+}
+
+.menu_item__link:hover {
+    color: #45E3FF;
+}
+
+.menu_item__link:hover::before,
+.menu_item__link:hover::after {
+    width: 50%;
+}
+
+.first_section__content {
+    padding-top: 330px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main_title {
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.main_title span {
+    color: #45E3FF;
+}
+
+.main_button {
+    background: #45E3FF;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, .25);
+    padding: 20px 35px;
+    margin-top: 60px;
+}
+
+.main_button:active {
+    transform: scale(0.9);
+}
+
+.contacts a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 32px;
+    transition: .3s ease-in;
+    display: block;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vkontakte,
+.instagram {
+    margin-bottom: 10px;
+}
+
+.contacts a:hover {
+    color: #45E3FF;
+}
+
+/* Вторая секция */
+.second_section {
+    background: #FEFFF1;
+}
+
+.second_section__title {
+    color: #A163F7;
+    text-shadow: #A163F7 0px 0px 100px;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #A163F7;
+    width: 100%;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 50%;
+    z-index: 2;
+}
+
+.delimiter {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #A163F7;
+}
+
+.delimiter::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background: #A163F7;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+}
+
+/* Третья секция */
+.third_section {
+    background: #45E3FF;
+}
+
+.third_section__title {
+    color: #FEFFF1;
+    text-shadow: #FEFFF1 0px 0px 100px;
+}
+
+.current_image {
+    width: 750px;
+    height: 500px;
+    margin: 0 auto;
+    background-image: url('./img/car1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 55px;
+}
+
+.car {
+    cursor: grab;
+}
+
+.car:active {
+    cursor: grabbing;
+}
+
+/* Четвертая секция */
+.fourth_section {
+    background: #111;
+}
+
+.fourth_section__title {
+    color: #A163F7;
+    text-shadow: #A163F7 0px 0px 100px;
+}
+
+.board_wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+    box-shadow: 0 0 2px #000;
+    transition: 2s ease;
+    background: #1d1d1d;
+}
+
+.square:hover {
+    transition-duration: 0s;
+}
+
+/* Пятая секция */
+.fifth_section {
+    background: #FEFFF1;
+}
+
+.fifth_section__title {
+    color: #A163F7;
+    text-shadow: #A163F7 0px 0px 100px;
+}
+
+.form_wrapper {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 550px;
+    height: 450px;
+    border: 1px solid #A163F7;
+}
+
+.fifth_section__form {
+    max-width: 400px;
+    margin: 100px auto 0 auto;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    color: #A163F7;
+}
+
+.tab:hover {
+    background-color: #A163F7;
+    color: #FEFFF1;
+}
+
+.tab:last-child {
+    margin-right: 0;
+}
+
+.active_tab {
+    background-color: #A163F7;
+    color: #FEFFF1;
+}
+
+.fifth_section__form input {
+    border-bottom: 1px solid #A163F7;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.fifth_section__form label {
+    color: #A163F7;
+}
+
+.personal_data,
+.contacts_data,
+.address_data {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_block {
+    display: none;
+}
+
+.active_block {
+    display: block;
+    animation: slide-in .5s ease-in-out;
+}
+
+.buttons {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttons button {
+    background: #A163F7;
+    padding: 10px 25px;
+    font-size: 12px;
+}
+
+.arrow_button {
+    padding: 0 !important;
+    width: 30px;
+    height: 30px;
+    margin-right: auto;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Шестая секция */
+.sixth_section {
+    background: #45E3FF;
+}
+
+.sixth_section__title {
+    color: #FEFFF1;
+    text-shadow: #FEFFF1 0px 0px 100px;
+}
+
+.signin_form {
+    max-width: 810px;
+    height: 460px;
+    margin: 0 auto;
+    margin-top: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #fff;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    color: #6F88FC;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    visibility: hidden;
+    transition: .1s ease-in;
+}
+
+.active_label {
+    transform: translate(-5px, -20px);
+    font-size: 13px;
+    visibility: visible !important;
+}
+
+.form-group input {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #6F88FC;
+    width: 100%;
+    font-size: 16px;
+    color: #6F88FC;
+}
+
+.signin_button {
+    width: 100%;
+    background: #6F88FC;
+    border-radius: 0;
+    padding: 10px 100px;
+}
+
+.sent {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, .75);
+    position: relative;
+}
+
+.sent::before,
+div::after {
+    content: '';
+    background: #6F88FC;
+    position: absolute;
+    height: 3px;
+}
+
+.sent::before {
+    left: 50%;
+    top: 60%;
+    width: 0px;
+    transform: translate(-100%, -50%) rotate(40deg);
+    transform-origin: center right;
+    animation: anim1 1s forwards;
+}
+
+.sent::after {
+    left: 50%;
+    top: 60%;
+    width: 0px;
+    transform: translate(-100%, -50%) rotate(130deg);
+    transform-origin: right center;
+    animation: anim2 1s 1s forwards;
+}
+
+.signin_form>div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes anim1 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 40px;
+    }
+}
+
+@keyframes anim2 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 70px;
+    }
 }
